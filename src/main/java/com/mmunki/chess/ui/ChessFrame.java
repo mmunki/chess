@@ -263,7 +263,8 @@ public final class ChessFrame extends JFrame implements BoardPanel.Listener {
         bottomBar.setPlayer(playerName, playerRating);
         bottomBar.setActive(game.sideToMove() == human);
         if (againstComputer) {
-            topBar.setPlayer(level.name + "  (" + level.elo + ")", level.elo);
+            Bot.Level opponent = ratingTest != null ? ratingTest.nextLevel() : level;
+            topBar.setPlayer(opponent.name + "  (" + opponent.elo + ")", opponent.elo);
         } else {
             topBar.setPlayer("Friend", 0);
         }
@@ -385,6 +386,10 @@ public final class ChessFrame extends JFrame implements BoardPanel.Listener {
     // ------------------------------------------------------------------ buttons
 
     private void undo() {
+        if (ratingTest != null) {
+            // a move that is taken back would make the test meaningless
+            return;
+        }
         stopBot();
         if (game.history().isEmpty()) {
             return;
@@ -551,13 +556,6 @@ public final class ChessFrame extends JFrame implements BoardPanel.Listener {
     // ------------------------------------------------------------------ rating test
 
     private void startRatingTest() {
-        NewGameDialog dialog = new NewGameDialog(this, level, minutes, incrementSeconds);
-        dialog.setVisible(true);
-        if (!dialog.accepted()) {
-            return;
-        }
-        minutes = dialog.minutes();
-        incrementSeconds = dialog.increment();
         againstComputer = true;
         ratingTest = new RatingTest(rating);
         human = Color.WHITE;

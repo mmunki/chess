@@ -1,7 +1,6 @@
 package com.mmunki.chess.ai;
 
 import com.mmunki.chess.core.Board;
-import com.mmunki.chess.core.Color;
 import com.mmunki.chess.core.Move;
 import com.mmunki.chess.core.MoveGenerator;
 import com.mmunki.chess.core.Piece;
@@ -360,11 +359,5 @@ public final class Search {
             return score + ply;
         }
         return score;
-    }
-
-    /** The evaluation of the position in the point of view of white. */
-    public static int whiteScore(Board board) {
-        int score = Evaluator.evaluate(board);
-        return board.sideToMove() == Color.WHITE ? score : -score;
     }
 }

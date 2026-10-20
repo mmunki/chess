@@ -444,9 +444,4 @@ public final class BoardPanel extends JPanel {
         }
         animations.removeAll(done);
     }
-
-    /** The square of a piece, used by the tests. */
-    static int squareOf(int file, int rank) {
-        return Square.of(file, rank);
-    }
 }

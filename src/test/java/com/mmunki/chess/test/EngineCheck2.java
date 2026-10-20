@@ -5,7 +5,6 @@ import com.mmunki.chess.ai.Search;
 import com.mmunki.chess.core.Board;
 import com.mmunki.chess.core.Game;
 import com.mmunki.chess.core.Move;
-import com.mmunki.chess.core.MoveGenerator;
 import com.mmunki.chess.core.Square;
 
 import java.util.List;
@@ -80,10 +79,5 @@ public final class EngineCheck2 {
             failures++;
         }
         System.out.println((ok ? "ok      " : "FAILED  ") + what);
-    }
-
-    /** The moves of a position, used by the tests. */
-    static List<Move> moves(Board board) {
-        return MoveGenerator.legalMoves(board);
     }
 }

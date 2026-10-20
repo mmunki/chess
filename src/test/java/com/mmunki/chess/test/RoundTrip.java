@@ -31,7 +31,8 @@ public final class RoundTrip {
                 long hashBefore = board.hash();
                 Board.Undo undo = board.makeMove(move);
                 board.undoMove(undo);
-                if (!before.equals(board.fen()) || hashBefore != board.hash()) {
+                if (!before.equals(board.fen()) || hashBefore != board.hash()
+                        || board.hash() != board.recalculatedHash()) {
                     failures++;
                     System.out.println("FAILED " + before + " after " + move + " -> " + board.fen());
                     return failures;
