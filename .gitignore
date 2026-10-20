@@ -7,3 +7,15 @@ dist/
 *.iml
 .vscode/
 .DS_Store
+
+# the build of the game for the phone
+android/.gradle/
+android/local.properties
+android/.kotlin/
+
+# the wrapper of gradle is part of the source tree
+!android/gradle/wrapper/gradle-wrapper.jar
+
+# the key that signs the apk never goes into the source tree
+*.jks
+*.keystore

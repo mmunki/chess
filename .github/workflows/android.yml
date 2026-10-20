@@ -1,0 +1,46 @@
+name: android build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up the JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up the Android SDK
+        run: |
+          for dir in "$ANDROID_HOME"/cmdline-tools/*/bin; do
+            echo "$dir" >> "$GITHUB_PATH"
+          done
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager "platforms;android-35" "build-tools;35.0.0" || true
+
+      - name: Grant gradlew permission
+        run: chmod +x gradlew
+        working-directory: android
+
+      - name: Check the game
+        run: ./gradlew testDebugUnitTest
+        working-directory: android
+
+      - name: Build the apk
+        run: ./build-apk.sh
+        working-directory: android
+
+      - name: Upload the apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: chess-apk
+          path: android/app/build/outputs/apk/release/app-release.apk
