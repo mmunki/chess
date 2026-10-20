@@ -45,6 +45,38 @@ or directly:
 java -jar dist/chess.jar
 ```
 
+## The game on the phone
+
+The same game runs on a phone.  The rules, the computer and the rating are
+the code of the game on the computer, only the part that draws the game is
+written for Android.
+
+The apk is built with [Gradle](https://gradle.org) and the plugin of Android:
+
+```bash
+cd android
+./build-apk.sh      # builds app/build/outputs/apk/release/app-release.apk
+```
+
+The file is put on the phone with `adb install app/build/outputs/apk/release/app-release.apk`
+or by opening it on the phone.  The apk is signed with the key of the debug
+build, so Android asks first whether the unknown source may be used.  A key
+of your own is used when it is given to the build:
+
+```bash
+./build-apk.sh -Pchess.keystore=/path/to/key.jks \
+    -Pchess.keystore.password=... \
+    -Pchess.key.alias=... \
+    -Pchess.key.password=...
+```
+
+The checks of the game for the phone are run with:
+
+```bash
+cd android
+./gradlew testDebugUnitTest
+```
+
 ## Playing
 
 * **New game** - against the computer or against a friend on the same
@@ -103,6 +135,18 @@ src/test/java/com/mmunki/chess/test
 ├── Calibrate.java         the measurement of the levels
 ├── RenderPieces.java      draws the pieces into a picture
 └── UiShot.java            takes a picture of the window
+android/app/src/main/java/com/mmunki/chess/android
+├── MainActivity.java      the window of the game on the phone
+├── BoardView.java         the board with the pieces on it
+├── PiecePainter.java      the pieces as vectors
+├── ClockView.java         the clock of a player
+├── PlayerBar.java         the bar of a player
+├── MoveListView.java      the list of the moves
+├── FlatButton.java        a button in the style of the game
+├── AvatarView.java        the picture of a player
+├── AudioEngine.java       the sounds
+├── Settings.java          the settings of the game
+└── Theme.java             the colours of the game
 ```
 
 ## The checks
