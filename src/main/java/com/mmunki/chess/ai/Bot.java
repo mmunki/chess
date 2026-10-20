@@ -42,11 +42,11 @@ public final class Bot {
     }
 
     public static final Level BEGINNER = new Level("Beginner", 400, 1, 200, 75);
-    public static final Level EASY = new Level("Easy", 600, 2, 300, 50);
-    public static final Level MEDIUM = new Level("Medium", 850, 3, 500, 30);
-    public static final Level HARD = new Level("Hard", 1150, 5, 1200, 15);
-    public static final Level EXPERT = new Level("Expert", 1500, 6, 3000, 5);
-    public static final Level MASTER = new Level("Master", 1900, 7, 6000, 0);
+    public static final Level EASY = new Level("Easy", 800, 2, 300, 50);
+    public static final Level MEDIUM = new Level("Medium", 1200, 3, 500, 30);
+    public static final Level HARD = new Level("Hard", 1600, 5, 1200, 15);
+    public static final Level EXPERT = new Level("Expert", 2000, 6, 3000, 5);
+    public static final Level MASTER = new Level("Master", 2400, 7, 6000, 0);
 
     /** The levels, from the weakest to the strongest. */
     public static final List<Level> LEVELS = Collections.unmodifiableList(
@@ -99,16 +99,5 @@ public final class Bot {
         copy.makeMove(move);
         Search.Result result = new Search(copy).search(2, 120);
         return -result.score;
-    }
-
-    /** The level that is the closest to a rating. */
-    public static Level levelForRating(int rating) {
-        Level best = BEGINNER;
-        for (Level level : LEVELS) {
-            if (Math.abs(level.elo - rating) < Math.abs(best.elo - rating)) {
-                best = level;
-            }
-        }
-        return best;
     }
 }

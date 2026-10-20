@@ -29,6 +29,15 @@ public final class EngineCheck {
         fen("8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 b - - 3 17");
         fen("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2");
 
+        int roundTrip = RoundTrip.check("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+                40, 80, 20240620);
+        roundTrip += RoundTrip.check("r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+                40, 80, 20240620);
+        failures += roundTrip;
+        System.out.println(roundTrip == 0
+                ? "ok      every move can be taken back"
+                : "FAILED  " + roundTrip + " moves could not be taken back");
+
         System.out.println(failures == 0 ? "ALL ENGINE CHECKS PASSED" : failures + " CHECKS FAILED");
         if (failures > 0) {
             System.exit(1);
