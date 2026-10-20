@@ -10,8 +10,8 @@ search and one of the good ones is taken.
 | Easy | 2 | 0.3 s | 50 % | 800 |
 | Medium | 3 | 0.5 s | 30 % | 1200 |
 | Hard | 5 | 1.2 s | 15 % | 1600 |
-| Expert | 6 | 3 s | 5 % | 2000 |
-| Master | 7 | 6 s | 0 % | 2400 |
+| Expert | 6 | 3 s | 5 % | 1750 |
+| Master | 7 | 6 s | 0 % | 1900 |
 
 ## How the numbers were measured
 
@@ -33,15 +33,20 @@ It prints the score and the distance of every pair.
 
 The measurement of six games per pair says this:
 
-| Pair | Score of the weaker level |
-| --- | --- |
-| Beginner against Easy | 0.00 |
-| Easy against Medium | 0.00 |
-| Medium against Hard | 0.00 |
+| Pair | Score of the weaker level | Distance |
+| --- | --- | --- |
+| Beginner against Easy | 0.00 | at least 400 |
+| Easy against Medium | 0.00 | at least 400 |
+| Medium against Hard | 0.00 | at least 400 |
+| Hard against Expert | 0.33 | about 120 |
 
-Every level wins every game against the level below it, so the distance
-between two levels is at least 400 rating points.  The table spreads the
-levels 400 points apart and puts the master at 2400.
+The rate of mistakes is what makes the levels apart: a level that hangs a
+piece every second time wins every game against the level below it, so the
+distance between two levels is at least 400 rating points.  The levels at the
+top are much closer to each other, there the depth is what counts.
+
+The table takes the distances of the measurement: 400 points between the
+levels at the bottom and about 150 points between the levels at the top.
 
 The absolute numbers are an estimate.  The measurement is made against the
 levels of this game and not against the players of a chess server, so the

@@ -98,6 +98,7 @@ src/test/java/com/mmunki/chess/test
 ├── Perft.java             the count of the move trees
 ├── EngineCheck.java       the checks of the rules
 ├── EngineCheck2.java      the checks of the computer
+├── RatingCheck.java       the checks of the rating
 ├── RoundTrip.java         every move has to be able to be taken back
 ├── Calibrate.java         the measurement of the levels
 ├── RenderPieces.java      draws the pieces into a picture
@@ -112,7 +113,8 @@ src/test/java/com/mmunki/chess/test
 
 The checks walk through the move trees of six positions and compare the
 number of leaves with the numbers that are known, they play a whole game
-between two computers and they look for the mates in one and two.
+between two computers, they look for the mates in one and two and they check
+the rating against the example of the paper of Mark Glickman.
 
 ## The licence
 
