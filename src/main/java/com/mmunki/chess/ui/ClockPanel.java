@@ -19,6 +19,8 @@ import java.awt.RenderingHints;
  */
 public final class ClockPanel extends JPanel {
 
+    private static final long serialVersionUID = 1L;
+
     private final Timer timer;
     private long remainingMillis;
     private long incrementMillis;

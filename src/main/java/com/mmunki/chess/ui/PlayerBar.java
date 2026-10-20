@@ -17,6 +17,8 @@ import java.awt.RenderingHints;
  */
 public final class PlayerBar extends JPanel {
 
+    private static final long serialVersionUID = 1L;
+
     private final Avatar avatar = new Avatar();
     private final JLabel name = new JLabel();
     private final JLabel rating = new JLabel();
@@ -86,6 +88,7 @@ public final class PlayerBar extends JPanel {
 
     /** The round picture with the letters of the player. */
     private static final class Avatar extends JPanel {
+        private static final long serialVersionUID = 1L;
         private String initials = "?";
 
         Avatar() {

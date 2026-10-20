@@ -27,6 +27,8 @@ import java.awt.Insets;
  */
 public final class NewGameDialog extends JDialog {
 
+    private static final long serialVersionUID = 1L;
+
     private final JRadioButton computer = new JRadioButton("Computer", true);
     private final JRadioButton friend = new JRadioButton("Friend on this computer");
     private final JComboBox<Bot.Level> level = new JComboBox<>(Bot.LEVELS.toArray(new Bot.Level[0]));

@@ -16,6 +16,8 @@ import java.awt.event.MouseEvent;
  */
 public final class FlatButton extends JButton {
 
+    private static final long serialVersionUID = 1L;
+
     private final Color normal;
     private final Color hover;
     private final Color pressed;

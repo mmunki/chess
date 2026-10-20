@@ -22,6 +22,8 @@ import java.awt.Insets;
  */
 public final class SettingsDialog extends JDialog {
 
+    private static final long serialVersionUID = 1L;
+
     private final JCheckBox sound = new JCheckBox("Sound", true);
     private final JSlider volume = new JSlider(0, 100, 70);
     private final JCheckBox highlights = new JCheckBox("Show the possible moves", true);
@@ -33,7 +35,7 @@ public final class SettingsDialog extends JDialog {
         setBackground(Theme.PANEL);
 
         sound.setSelected(soundOn);
-        volume.setValue((int) Math.round(volumeValue * 100));
+        volume.setValue(Math.round(volumeValue * 100));
         highlights.setSelected(highlightsOn);
         name.setText(playerName);
 

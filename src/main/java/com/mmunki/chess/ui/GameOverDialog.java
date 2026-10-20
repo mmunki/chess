@@ -18,6 +18,8 @@ import java.awt.GridLayout;
  */
 public final class GameOverDialog extends JDialog {
 
+    private static final long serialVersionUID = 1L;
+
     public GameOverDialog(Frame owner, String title, String message, String detail) {
         super(owner, title, true);
         setBackground(Theme.PANEL);
