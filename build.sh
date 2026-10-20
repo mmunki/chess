@@ -39,6 +39,7 @@ if [ "${1:-}" = "test" ]; then
     "$JAVAC" -d "$TEST_OUT" -cp "$OUT" @build/test-sources.txt
     java -cp "$OUT:$TEST_OUT" com.mmunki.chess.test.EngineCheck
     java -cp "$OUT:$TEST_OUT" com.mmunki.chess.test.EngineCheck2
+    java -cp "$OUT:$TEST_OUT" com.mmunki.chess.test.RatingCheck
 fi
 
 echo "==> done: $DIST/chess.jar"
