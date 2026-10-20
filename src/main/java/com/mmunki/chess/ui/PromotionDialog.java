@@ -21,6 +21,8 @@ import java.awt.event.WindowEvent;
  */
 public final class PromotionDialog extends JDialog {
 
+    private static final long serialVersionUID = 1L;
+
     private Piece chosen;
 
     public PromotionDialog(java.awt.Frame owner, Color color) {
@@ -53,6 +55,7 @@ public final class PromotionDialog extends JDialog {
 
     /** One of the four pieces. */
     private final class PieceChoice extends JPanel {
+        private static final long serialVersionUID = 1L;
         private final Piece piece;
         private final Color color;
         private boolean over;

@@ -36,6 +36,8 @@ import java.awt.event.WindowEvent;
  */
 public final class ChessFrame extends JFrame implements BoardPanel.Listener {
 
+    private static final long serialVersionUID = 1L;
+
     private final BoardPanel boardPanel = new BoardPanel();
     private final PlayerBar topBar = new PlayerBar(Theme.ACCENT);
     private final PlayerBar bottomBar = new PlayerBar(Theme.BLUE);

@@ -32,6 +32,8 @@ import java.util.List;
  */
 public final class BoardPanel extends JPanel {
 
+    private static final long serialVersionUID = 1L;
+
     /** What the board tells the game. */
     public interface Listener {
         /** The player picked a move. */

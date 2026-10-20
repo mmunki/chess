@@ -17,6 +17,8 @@ import java.util.List;
  */
 public final class MoveListPanel extends JPanel {
 
+    private static final long serialVersionUID = 1L;
+
     private final DefaultTableModel model = new DefaultTableModel(new Object[]{"", "White", "Black"}, 0) {
         @Override
         public boolean isCellEditable(int row, int column) {
