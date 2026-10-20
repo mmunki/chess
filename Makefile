@@ -32,6 +32,7 @@ test: $(JARFILE)
 	$(JAVAC) -d $(TEST_OUT) -cp $(OUT) $(shell find src/test/java -name '*.java')
 	$(JAVA) -cp $(OUT):$(TEST_OUT) com.mmunki.chess.test.EngineCheck
 	$(JAVA) -cp $(OUT):$(TEST_OUT) com.mmunki.chess.test.EngineCheck2
+	$(JAVA) -cp $(OUT):$(TEST_OUT) com.mmunki.chess.test.RatingCheck
 
 run: $(JARFILE)
 	$(JAVA) -jar $(JARFILE)
