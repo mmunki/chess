@@ -20,7 +20,12 @@ jobs:
           java-version: '17'
 
       - name: Set up the Android SDK
-        uses: android-actions/setup-android@v3
+        run: |
+          for dir in "$ANDROID_HOME"/cmdline-tools/*/bin; do
+            echo "$dir" >> "$GITHUB_PATH"
+          done
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager "platforms;android-35" "build-tools;35.0.0" || true
 
       - name: Grant gradlew permission
         run: chmod +x gradlew
