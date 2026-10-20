@@ -45,8 +45,8 @@ public final class Bot {
     public static final Level EASY = new Level("Easy", 800, 2, 300, 50);
     public static final Level MEDIUM = new Level("Medium", 1200, 3, 500, 30);
     public static final Level HARD = new Level("Hard", 1600, 5, 1200, 15);
-    public static final Level EXPERT = new Level("Expert", 2000, 6, 3000, 5);
-    public static final Level MASTER = new Level("Master", 2400, 7, 6000, 0);
+    public static final Level EXPERT = new Level("Expert", 1750, 6, 3000, 5);
+    public static final Level MASTER = new Level("Master", 1900, 7, 6000, 0);
 
     /** The levels, from the weakest to the strongest. */
     public static final List<Level> LEVELS = Collections.unmodifiableList(
